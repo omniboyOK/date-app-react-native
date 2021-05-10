@@ -6,7 +6,7 @@ import {
   Text,
 } from "@ui-kitten/components";
 
-const HomeScreen = () => {
+const Messages = () => {
   const [text, setText] = useState("press me daddy");
   const [status, setStatus] = useState("primary");
 
@@ -16,7 +16,7 @@ const HomeScreen = () => {
   };
   return (
     <Layout style={styles.layout} level="1">
-      <Text category="h1">I´m a text</Text>
+      <Text category="h1">I'm the PEOPLE screen</Text>
       <Button onPress={() => revolution()} status={status}>
         {text}
       </Button>
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default Messages;

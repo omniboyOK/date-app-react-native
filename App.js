@@ -2,15 +2,15 @@ import React from "react";
 import * as eva from "@eva-design/eva";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
-import HomeScreen from "./src/views/Home";
-import HomeMenu from "./src/menu/HomeMenu";
+import MainView from "./src/Main";
 
-export default () => (
-  <>
-    <IconRegistry icons={EvaIconsPack} />
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <HomeScreen />
-      <HomeMenu />
-    </ApplicationProvider>
-  </>
-);
+export default () => {
+  return (
+    <>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider {...eva} theme={eva.dark}>
+        <MainView />
+      </ApplicationProvider>
+    </>
+  );
+};
