@@ -1,25 +1,48 @@
-import { StyleSheet } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import {
-  Button,
-  Layout,
-  Text,
-} from "@ui-kitten/components";
+import { Layout } from "@ui-kitten/components";
+import Thumbnail from "../component/Thumbnail";
+
+const MockData = [
+  {
+    id: 0,
+    name: "Ben",
+  },
+  {
+    id: 1,
+    name: "Susan",
+  },
+  {
+    id: 2,
+    name: "Robert",
+  },
+  {
+    id: 3,
+    name: "Mary",
+  },
+  {
+    id: 4,
+    name: "Pepe",
+  },
+  {
+    id: 6,
+    name: "Pepe",
+  },
+];
 
 const People = () => {
-  const [text, setText] = useState("press me daddy");
-  const [status, setStatus] = useState("primary");
+  const [listColumns, setListColumns] = useState(4);
 
-  const revolution = () => {
-    setText("I have been pressed uwu");
-    setStatus("danger");
-  };
   return (
-    <Layout style={styles.layout} level="1">
-      <Text category="h1">I'm the PEOPLE screen</Text>
-      <Button onPress={() => revolution()} status={status}>
-        {text}
-      </Button>
+    <Layout style={styles.container}> 
+      <FlatList
+        data={MockData}
+        numColumns={listColumns}
+        keyExtractor={(item, index) => item.id}
+        renderItem={({ item }) => {
+          return <Thumbnail username={item.name} />;
+        }}
+      />
     </Layout>
   );
 };
@@ -27,19 +50,11 @@ const People = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 25,
     flexDirection: "row",
-  },
-  layout: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 30,
-  },
-  menu: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+    width: "100%",
+    borderColor: "green",
+  }
 });
 
 export default People;
