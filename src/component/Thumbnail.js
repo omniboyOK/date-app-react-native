@@ -17,9 +17,7 @@ const Thumbnail = ({ user }) => {
       style={styles.thumbnail}
     >
       <View>
-        <Layout>
-          <Text>{user.name}</Text>
-        </Layout>
+        <Text style={{ color: "white" }}>{user.name}</Text>
         <ProfileModal
           user={user}
           visible={isModalVisible}
@@ -35,7 +33,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#4D243D",
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 1,
+    borderColor: "white",
+    borderWidth: 0.5,
     flex: 1,
     height: Dimensions.get("window").width / 4,
     maxWidth: Dimensions.get("window").width / 4,

@@ -1,6 +1,5 @@
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View} from "react-native";
 import React, { useState } from "react";
-import { Layout } from "@ui-kitten/components";
 import Thumbnail from "../component/Thumbnail";
 
 const MockData = [
@@ -44,7 +43,7 @@ const People = () => {
   const [listColumns, setListColumns] = useState(4);
 
   return (
-    <Layout style={styles.container}>
+    <View style={styles.container}>
       <FlatList
         data={MockData}
         numColumns={listColumns}
@@ -53,7 +52,7 @@ const People = () => {
           return <Thumbnail user={item} />;
         }}
       />
-    </Layout>
+    </View>
   );
 };
 
@@ -63,7 +62,6 @@ const styles = StyleSheet.create({
     marginTop: 25,
     flexDirection: "row",
     width: "100%",
-    borderColor: "green",
   },
 });
 

@@ -8,7 +8,7 @@ export default () => {
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={eva.dark}>
+      <ApplicationProvider {...eva} theme={eva.light}>
         <MainView />
       </ApplicationProvider>
     </>
