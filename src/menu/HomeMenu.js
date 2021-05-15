@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import React, { useState } from "react";
 import {
   BottomNavigation,
@@ -28,17 +27,5 @@ const HomeMenu = () => {
     </BottomNavigation>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-  },
-  menu: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
 export default HomeMenu;
