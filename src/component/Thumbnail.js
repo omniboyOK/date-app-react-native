@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, Dimensions, View } from "react-native";
-import { Layout, Text } from "@ui-kitten/components";
+import { StyleSheet, Dimensions, View, Image } from "react-native";
+import { Text } from "@ui-kitten/components";
 import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
 import { ProfileModal } from "./ProfileModal";
 
@@ -16,7 +16,12 @@ const Thumbnail = ({ user }) => {
       onPress={() => setIsModalVisible(true)}
       style={styles.thumbnail}
     >
-      <View>
+      <Image
+        source={user.image || require("../../assets/faces/placeholder.jpg")}
+        resizeMode="contain"
+        style={styles.image}
+      />
+      <View style={{ position: "absolute", padding: 5 }}>
         <Text style={{ color: "white" }}>{user.name}</Text>
         <ProfileModal
           user={user}
@@ -31,13 +36,15 @@ const Thumbnail = ({ user }) => {
 const styles = StyleSheet.create({
   thumbnail: {
     backgroundColor: "#4D243D",
-    alignItems: "center",
-    justifyContent: "center",
     borderColor: "white",
     borderWidth: 0.5,
     flex: 1,
     height: Dimensions.get("window").width / 4,
     maxWidth: Dimensions.get("window").width / 4,
+  },
+  image: {
+    width: "100%",
+    height: "100%",
   },
 });
 

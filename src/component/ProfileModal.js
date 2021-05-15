@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View, Modal, ScrollView } from "react-native";
-import { Button, Card, Layout, Text } from "@ui-kitten/components";
+import { Button, Card, Text } from "@ui-kitten/components";
 
 const ModalHeader = ({ user }) => {
   return (
     <View>
-      <Button appearance="ghost" status="warning" style={styles.close}>X</Button>
+      <Button appearance="ghost" status="warning" style={styles.close}>
+        X
+      </Button>
       <Text category="h1" style={{ color: "black" }}>
         {user.name}
       </Text>
