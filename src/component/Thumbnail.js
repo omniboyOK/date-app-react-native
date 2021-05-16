@@ -21,8 +21,10 @@ const Thumbnail = ({ user }) => {
         resizeMode="contain"
         style={styles.image}
       />
-      <View style={{ position: "absolute", padding: 5 }}>
-        <Text style={{ color: "white" }}>{user.name}</Text>
+      <View style={{ position: "absolute" }}>
+        <View style={styles.username}>
+          <Text style={{ color: "white", margin: 3 }}>{user.name}</Text>
+        </View>
         <ProfileModal
           user={user}
           visible={isModalVisible}
@@ -45,6 +47,10 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
+  },
+  username: {
+    backgroundColor: "rgba(52, 52, 52, 0.5)",
+    borderBottomRightRadius: 5,
   },
 });
 
