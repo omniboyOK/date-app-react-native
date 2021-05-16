@@ -21,7 +21,7 @@ const HomeMenu = () => {
       selectedIndex={selectedIndex}
       onSelect={(index) => setSelectedIndex(index)}
     >
-      <BottomNavigationTab title="PEOPLE" icon={PeopleIcon} />
+      <BottomNavigationTab title="PEOPLE" icon={PeopleIcon} onPress={}/>
       <BottomNavigationTab title="MESSAGES" icon={MessageIcon} />
       <BottomNavigationTab title="PROFILE" icon={ProfileIcon} />
     </BottomNavigation>
