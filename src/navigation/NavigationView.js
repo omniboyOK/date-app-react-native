@@ -5,11 +5,22 @@ import { createAppContainer } from "react-navigation";
 import GlobalProfilesScreen from "../screens/GlobalProfilesScreen";
 import MessagesScreen from "../screens/MessagesScreen";
 import UserEditProfileScreen from "../screens/UserMessageScreen";
-import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import Header from "../component/Header";
 
 const NavigationView = createStackNavigator({
-  Global: GlobalProfilesScreen,
-  Messages: MessagesScreen,
+  Global: {
+    screen: GlobalProfilesScreen,
+    navigationOptions: {
+      header: <Header />,
+    },
+  },
+  Messages: {
+    screen: MessagesScreen,
+    navigationOptions: {
+      header: <Header />,
+    },
+  },
   User: UserEditProfileScreen,
 });
 

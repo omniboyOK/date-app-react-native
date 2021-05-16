@@ -1,13 +1,13 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Dimensions, Image, StyleSheet, View } from "react-native";
 
-export const Header = () => {
+const Header = () => {
   return (
     <View style={styles.header}>
       <Image
         source={require("../../assets/Isologo.png")}
         resizeMode="contain"
-        style={styles.banner}
+        style={styles.image}
       />
     </View>
   );
@@ -16,15 +16,17 @@ export const Header = () => {
 const styles = StyleSheet.create({
   header: {
     width: "100%",
-    paddingTop: 36,
-    height: 40,
+    height: 80,
+    paddingTop: 26,
     alignItems: "center",
     justifyContent: "center",
+    paddingBottom: 10,
+    borderBottomWidth: 0.5,
   },
-  banner: {
-    width: "100%",
-    paddingTop: 36,
+  image: {
     height: "100%",
-    //color: #9966ff
-  }
+    width: "100%",
+  },
 });
+
+export default Header;
