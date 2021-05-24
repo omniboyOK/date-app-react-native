@@ -12,13 +12,13 @@ const NavigationView = createStackNavigator({
   Global: {
     screen: GlobalProfilesScreen,
     navigationOptions: {
-      header: <Header />,
+      header: () => <Header />,
     },
   },
   Messages: {
     screen: MessagesScreen,
     navigationOptions: {
-      header: <Header />,
+      header: () => <Header />,
     },
   },
   User: UserEditProfileScreen,
