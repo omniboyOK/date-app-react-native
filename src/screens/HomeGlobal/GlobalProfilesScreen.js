@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
-import Thumbnail from "../component/Thumbnail";
+import Thumbnail from "../../component/Thumbnail";
 
 const MockData = [
   {
@@ -24,17 +24,17 @@ const MockData = [
   {
     id: 2,
     name: "Robert",
-    image: require("../../assets/faces/ayo-ogunseinde-2.jpg"),
+    image: require("../../../assets/faces/ayo-ogunseinde-2.jpg"),
   },
   {
     id: 3,
     name: "Mary",
-    image: require("../../assets/faces/kaci-baum-2.jpg"),
+    image: require("../../../assets/faces/kaci-baum-2.jpg"),
   },
   {
     id: 4,
     name: "Pepe",
-    image: require("../../assets/faces/erik-lucatero-2.jpg"),
+    image: require("../../../assets/faces/erik-lucatero-2.jpg"),
   },
   {
     id: 6,

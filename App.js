@@ -5,7 +5,6 @@ import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { default as theme } from "./custom-theme.json";
 import NavigationView from "./src/navigation/NavigationView";
 
-
 export default () => {
   return (
     <>

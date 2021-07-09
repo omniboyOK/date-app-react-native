@@ -2,70 +2,52 @@ import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation";
-import GlobalProfilesScreen from "../screens/GlobalProfilesScreen";
-import MessagesScreen from "../screens/MessagesScreen";
-import UserEditProfileScreen from "../screens/UserMessageScreen";
+import GlobalProfilesScreen from "../screens/HomeGlobal/GlobalProfilesScreen";
+import UserEditProfileScreen from "../screens/HomeMessages/UserMessageScreen";
+import MessagesScreen from "../screens/HomeMessages/MessagesScreen";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Header from "../component/Header";
 
-const NavigationView = createStackNavigator({
-  Global: {
-    screen: GlobalProfilesScreen,
-    navigationOptions: {
-      header: () => <Header />,
-    },
-  },
-  Messages: {
-    screen: MessagesScreen,
-    navigationOptions: {
-      header: () => <Header />,
-    },
-  },
-  User: UserEditProfileScreen,
-});
+const createTabIcon = (tab, name) => (
+  <FontAwesome5 name={name} size={24} color={tab.tintColor} />
+);
 
 const TabNavigationView = createBottomTabNavigator(
   {
     Global: {
-      screen: NavigationView,
+      screen: GlobalProfilesScreen,
       navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <FontAwesome5 name="users" size={24} color={tabInfo.tintColor} />
-          );
-        },
+        tabBarIcon: (tabInfo) => createTabIcon(tabInfo, "users"),
       },
     },
     Messages: {
       screen: MessagesScreen,
       navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <FontAwesome5
-              name="comment-alt"
-              size={24}
-              color={tabInfo.tintColor}
-            />
-          );
-        },
+        tabBarIcon: (tabInfo) => createTabIcon(tabInfo, "comment-alt"),
       },
     },
     User: {
       screen: UserEditProfileScreen,
       navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <FontAwesome5 name="user" size={24} color={tabInfo.tintColor} />
-          );
-        },
+        tabBarIcon: (tabInfo) => createTabIcon(tabInfo, "user"),
       },
     },
   },
   {
+    initialRouteName: "Global",
     tabBarOptions: {
       activeTintColor: "#754ADB",
     },
   }
 );
 
-export default createAppContainer(TabNavigationView);
+const RootStack = createStackNavigator({
+  Home: {
+    screen: TabNavigationView,
+    navigationOptions: {
+      header: () => <Header />,
+    },
+  },
+});
+
+export default AppNavigator = createAppContainer(RootStack);
