@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions, View, Image } from "react-native";
 import { Text } from "@ui-kitten/components";
 import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
 import { ProfileModal } from "./ProfileModal";
+import { PICTURES } from "../constants/pictures";
 
 const Thumbnail = ({ user }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -11,13 +12,13 @@ const Thumbnail = ({ user }) => {
     setIsModalVisible(false);
   };
 
+  const profilePic = (image) =>
+    PICTURES[image] ? PICTURES[image] : PICTURES.default;
+
   return (
-    <TouchableWithoutFeedback
-      onPress={() => setIsModalVisible(true)}
-      style={styles.thumbnail}
-    >
+    <View style={styles.thumbnail}>
       <Image
-        source={user.image || require("../../assets/faces/placeholder.jpg")}
+        source={profilePic(user.image)}
         resizeMode="contain"
         style={styles.image}
       />
@@ -31,26 +32,31 @@ const Thumbnail = ({ user }) => {
           onClose={handleModalClose}
         ></ProfileModal>
       </View>
-    </TouchableWithoutFeedback>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   thumbnail: {
-    backgroundColor: "#4D243D",
     borderColor: "white",
-    borderWidth: 0.5,
+    borderRadius: 10,
     flex: 1,
     height: Dimensions.get("window").width / 4,
     maxWidth: Dimensions.get("window").width / 4,
+    margin: 0,
+    padding: 3,
   },
   image: {
     width: "100%",
     height: "100%",
+    borderRadius: 10,
   },
   username: {
     backgroundColor: "rgba(52, 52, 52, 0.5)",
-    borderBottomRightRadius: 5,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 10,
+    left: 3,
+    top: 3,
   },
 });
 
