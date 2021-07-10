@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
-import Header from "../component/Header";
+import Header from "../components/Header";
 import TabNavigationView from "./TabNavBar/BottomTabNavigation";
 
 const RootStack = createStackNavigator({
