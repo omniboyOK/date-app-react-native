@@ -2,7 +2,7 @@ const nameList = [
   "ben",
   "betty",
   "bobby",
-  "pili",
+  "patty",
   "robert",
   "susan",
   "will",
@@ -14,7 +14,7 @@ const imageList = ["ben", "betty", "bobby", "pili", "robert", "susan", "will"];
 export const generateList = (amount) => {
   let list = [];
 
-  for (let i = 0; i > amount; it++) {
+  for (let i = 0; i < amount; i++) {
     let profile = {
       name: nameList[Math.floor(Math.random() * nameList.length)],
       description: "This is a generic description",

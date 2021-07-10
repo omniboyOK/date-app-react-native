@@ -1,56 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
-import Thumbnail from "../../component/Thumbnail";
+import Thumbnail from "../../components/Thumbnail";
+import { FetchGlobalUsers } from "../../constants/api";
+import axios from "axios";
+import { generateList } from "../../utils/profilesGenerator";
 
-const MockData = [
-  {
-    id: 0,
-    name: "Ben",
-    description: `Jelly beans jelly-o cake biscuit cake tart marzipan. Muffin jelly powder sweet roll cheesecake candy canes dragée wafer. Candy canes sweet roll gingerbread jelly lemon drops lemon drops chocolate bar cookie. Macaroon bear claw wafer apple pie.
-  
-      Brownie sweet lemon drops chocolate. Macaroon marzipan chocolate bar cheesecake lollipop donut dragée. Sugar plum cake chupa chups tiramisu biscuit liquorice muffin.
-      
-      Biscuit pie tootsie roll. Wafer biscuit oat cake halvah topping bonbon bonbon oat cake. Cheesecake macaroon jujubes cheesecake tootsie roll.`,
-  },
-  {
-    id: 1,
-    name: "Susan",
-    description: `Jelly beans jelly-o cake biscuit cake tart marzipan. Muffin jelly powder sweet roll cheesecake candy canes dragée wafer. Candy canes sweet roll gingerbread jelly lemon drops lemon drops chocolate bar cookie. Macaroon bear claw wafer apple pie.
-  
-      Brownie sweet lemon drops chocolate. Macaroon marzipan chocolate bar cheesecake lollipop donut dragée. Sugar plum cake chupa chups tiramisu biscuit liquorice muffin.
-      
-      Biscuit pie tootsie roll. Wafer biscuit oat cake halvah topping bonbon bonbon oat cake. Cheesecake macaroon jujubes cheesecake tootsie roll.`,
-  },
-  {
-    id: 2,
-    name: "Robert",
-    image: require("../../../assets/faces/ayo-ogunseinde-2.jpg"),
-  },
-  {
-    id: 3,
-    name: "Mary",
-    image: require("../../../assets/faces/kaci-baum-2.jpg"),
-  },
-  {
-    id: 4,
-    name: "Pepe",
-    image: require("../../../assets/faces/erik-lucatero-2.jpg"),
-  },
-  {
-    id: 6,
-    name: "Rigoberta",
-  },
-];
-
-const GlobalProfilesScreen = (props) => {
+const GlobalProfilesScreen = () => {
   const [listColumns, setListColumns] = useState(4);
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    const getData = () => {
+      const list = generateList(100);
+
+      setUserList(list);
+    };
+
+    getData();
+  }, [setUserList, FetchGlobalUsers]);
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={MockData}
+        data={userList}
         numColumns={listColumns}
-        keyExtractor={(item, index) => item.id}
+        keyExtractor={(_, index) => "key-" + index}
         renderItem={({ item }) => {
           return <Thumbnail user={item} />;
         }}
