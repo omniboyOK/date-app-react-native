@@ -13,8 +13,10 @@ const RootStack = createStackNavigator({
     },
   },
   Message: {
-    screen: MessagesScreen
-  }
+    screen: MessagesScreen,
+  },
 });
 
-export default AppNavigator = createAppContainer(RootStack);
+const AppNavigator = createAppContainer(RootStack);
+
+export default AppNavigator;
