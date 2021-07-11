@@ -1,16 +1,44 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { useState } from "react/cjs/react.development";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, FlatList, Text } from "react-native";
 import EmptyMessageList from "./components/EmptyState/EmptyState";
+import MessageItem from "./components/MessageItem/MessageItem";
 
 const MessagesScreen = () => {
-  const [messageList, setMessageList] = useState([])
+  const [messageList, setMessageList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  if (messageList.length === 0) return <EmptyMessageList styles={styles.screen}/>
+  useEffect(() => {
+    const getData = () => {
+      axios
+        .get("https://run.mocky.io/v3/4834872a-c365-450a-a746-ba35888933f8")
+        .then((response) => {
+          setMessageList(response.data.chats);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+    };
+
+    getData();
+  });
+
+  if (messageList.length === 0 || loading)
+    return <EmptyMessageList styles={styles.screen} />;
 
   return (
-    <View style={styles.screen}>
-      <Text>This is the message list</Text>
+    <View style={{margin: 10}}>
+      <FlatList
+        data={messageList}
+        numColumns={1}
+        showsVerticalScrollIndicator
+        keyExtractor={(_, index) => "key-" + index}
+        renderItem={({ item }) => {
+          return <MessageItem date={item.last_update} message={item.last_message} image={item.image}/>;
+        }}
+      />
     </View>
   );
 };
