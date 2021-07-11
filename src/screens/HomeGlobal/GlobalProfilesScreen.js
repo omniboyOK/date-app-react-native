@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 import Thumbnail from "../../components/Thumbnail";
-import { FetchGlobalUsers } from "../../constants/api";
-import axios from "axios";
 import { generateList } from "../../utils/profilesGenerator";
 
 const GlobalProfilesScreen = () => {
@@ -17,7 +15,7 @@ const GlobalProfilesScreen = () => {
     };
 
     getData();
-  }, [setUserList, FetchGlobalUsers]);
+  }, [setUserList]);
 
   return (
     <View style={styles.container}>
