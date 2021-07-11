@@ -1,40 +1,42 @@
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import GlobalProfilesScreen from "../../screens/HomeGlobal/GlobalProfilesScreen";
-import UserEditProfileScreen from "../../screens/HomeMessages/UserMessageScreen";
+import UserEditProfileScreen from "../../screens/UserProfile/UserProfileScreen";
 import MessagesScreen from "../../screens/HomeMessages/MessagesScreen";
-import { FontAwesome5 } from "@expo/vector-icons";
-
-const createTabIcon = (tab, name) => (
-  <FontAwesome5 name={name} size={24} color={tab.tintColor} />
-);
+import TabIcon from "../../components/TabIcon/TabIcon";
 
 const TabNavigationView = createBottomTabNavigator(
   {
-    Global: {
+    Nearby: {
       screen: GlobalProfilesScreen,
       navigationOptions: {
-        tabBarIcon: (tabInfo) => createTabIcon(tabInfo, "users"),
+        tabBarIcon: (tabInfo) => (
+          <TabIcon tabInfo={tabInfo} name="nearby" size={24} />
+        ),
       },
     },
     Messages: {
       screen: MessagesScreen,
       navigationOptions: {
-        tabBarIcon: (tabInfo) => createTabIcon(tabInfo, "comment-alt"),
+        tabBarIcon: (tabInfo) => (
+          <TabIcon tabInfo={tabInfo} name="messages" size={24} />
+        ),
       },
     },
-    User: {
+    Profile: {
       screen: UserEditProfileScreen,
       navigationOptions: {
-        tabBarIcon: (tabInfo) => createTabIcon(tabInfo, "user"),
+        tabBarIcon: (tabInfo) => (
+          <TabIcon tabInfo={tabInfo} name="user" size={24} />
+        ),
       },
     },
   },
   {
-    initialRouteName: "Global",
+    initialRouteName: "Nearby",
     tabBarOptions: {
       activeTintColor: "#754ADB",
-      style: { height: 55, borderRadius: 10, borderTopWidth: 0}
+      style: { height: 55, borderRadius: 10, borderTopWidth: 0 },
     },
   }
 );
