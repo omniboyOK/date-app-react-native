@@ -1,17 +1,8 @@
-import React, { useState } from "react";
-import { StyleSheet, Dimensions, View, Image } from "react-native";
-import { Text } from "@ui-kitten/components";
-import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
-import { ProfileModal } from "./ProfileModal";
+import React from "react";
+import { StyleSheet, Dimensions, View, Image, Text } from "react-native";
 import { PICTURES } from "../constants/pictures";
 
 const Thumbnail = ({ user, size = 4 }) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const handleModalClose = () => {
-    setIsModalVisible(false);
-  };
-
   const profilePic = (image) =>
     PICTURES[image] ? PICTURES[image] : PICTURES.default;
 
@@ -24,13 +15,10 @@ const Thumbnail = ({ user, size = 4 }) => {
       />
       <View style={{ position: "absolute" }}>
         <View style={styles.username}>
-          <Text style={{ color: "white", margin: 3, fontSize: 12 }}>{user.name}</Text>
+          <Text style={{ color: "white", margin: 3, fontSize: 12 }}>
+            {user.name}
+          </Text>
         </View>
-        <ProfileModal
-          user={user}
-          visible={isModalVisible}
-          onClose={handleModalClose}
-        ></ProfileModal>
       </View>
     </View>
   );
