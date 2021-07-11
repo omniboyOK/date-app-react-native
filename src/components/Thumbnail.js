@@ -5,7 +5,7 @@ import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
 import { ProfileModal } from "./ProfileModal";
 import { PICTURES } from "../constants/pictures";
 
-const Thumbnail = ({ user }) => {
+const Thumbnail = ({ user, size = 4 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleModalClose = () => {
@@ -24,7 +24,7 @@ const Thumbnail = ({ user }) => {
       />
       <View style={{ position: "absolute" }}>
         <View style={styles.username}>
-          <Text style={{ color: "white", margin: 3 }}>{user.name}</Text>
+          <Text style={{ color: "white", margin: 3, fontSize: 12 }}>{user.name}</Text>
         </View>
         <ProfileModal
           user={user}

@@ -26,7 +26,7 @@ const GlobalProfilesScreen = () => {
         numColumns={listColumns}
         keyExtractor={(_, index) => "key-" + index}
         renderItem={({ item }) => {
-          return <Thumbnail user={item} />;
+          return <Thumbnail user={item} size={listColumns}/>;
         }}
       />
     </View>
