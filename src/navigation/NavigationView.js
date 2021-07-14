@@ -12,9 +12,6 @@ const RootStack = createStackNavigator({
       header: () => <Header />,
     },
   },
-  Message: {
-    screen: MessagesScreen,
-  },
 });
 
 const AppNavigator = createAppContainer(RootStack);

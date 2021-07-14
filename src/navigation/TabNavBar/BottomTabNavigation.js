@@ -4,6 +4,33 @@ import GlobalProfilesScreen from "../../screens/HomeGlobal/GlobalProfilesScreen"
 import UserEditProfileScreen from "../../screens/UserProfile/UserProfileScreen";
 import MessagesScreen from "../../screens/HomeMessages/MessagesScreen";
 import TabIcon from "../../components/TabIcon/TabIcon";
+import { createStackNavigator } from "react-navigation-stack";
+import Chat from "../../screens/Message/Chat";
+
+const MessageStack = createStackNavigator({
+  Messages: {
+    screen: MessagesScreen,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  Message: Chat,
+});
+
+/** Don´t show the bottom navbar when chating */
+MessageStack.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+
+  let routeName = navigation.state.routes[navigation.state.index].routeName;
+
+  if (routeName == "Message") {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible,
+  };
+};
 
 const TabNavigationView = createBottomTabNavigator(
   {
@@ -16,7 +43,7 @@ const TabNavigationView = createBottomTabNavigator(
       },
     },
     Messages: {
-      screen: MessagesScreen,
+      screen: MessageStack,
       navigationOptions: {
         tabBarIcon: (tabInfo) => (
           <TabIcon tabInfo={tabInfo} name="messages" size={24} />
