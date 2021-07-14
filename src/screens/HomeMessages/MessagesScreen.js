@@ -4,9 +4,13 @@ import { View, StyleSheet, FlatList, Text } from "react-native";
 import EmptyMessageList from "./components/EmptyState/EmptyState";
 import MessageItem from "./components/MessageItem/MessageItem";
 
-const MessagesScreen = () => {
+const MessagesScreen = ({ navigation }) => {
   const [messageList, setMessageList] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigateToChat = () => {
+    navigation.navigate("Message");
+  };
 
   useEffect(() => {
     const getData = () => {
@@ -29,14 +33,21 @@ const MessagesScreen = () => {
     return <EmptyMessageList styles={styles.screen} />;
 
   return (
-    <View style={{margin: 10}}>
+    <View style={{ margin: 10 }}>
       <FlatList
         data={messageList}
         numColumns={1}
         showsVerticalScrollIndicator
         keyExtractor={(_, index) => "key-" + index}
         renderItem={({ item }) => {
-          return <MessageItem date={item.last_update} message={item.last_message} image={item.image}/>;
+          return (
+            <MessageItem
+              date={item.last_update}
+              message={item.last_message}
+              image={item.image}
+              onPress={() => navigateToChat()}
+            />
+          );
         }}
       />
     </View>
