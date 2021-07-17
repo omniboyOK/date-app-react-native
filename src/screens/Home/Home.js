@@ -30,7 +30,7 @@ const GlobalProfilesScreen = () => {
         renderItem={({ item }) => {
           return <Thumbnail user={item} size={listColumns} />;
         }}
-        style={{ paddingBottom: 50 }}
+        contentContainerStyle={{ paddingBottom: 50 }}
       />
     </View>
   );
