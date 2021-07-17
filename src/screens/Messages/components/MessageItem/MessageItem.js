@@ -9,7 +9,6 @@ const MessageItem = ({ message, date, image, onPress }) => {
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          backgroundColor: "#ffffff",
           height: 60,
           borderRadius: 10,
           marginVertical: 5,

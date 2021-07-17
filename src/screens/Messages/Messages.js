@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
+import theme from "../../constants/theme";
 import EmptyMessageList from "./components/EmptyState/EmptyState";
 import MessageItem from "./components/MessageItem/MessageItem";
 
@@ -30,11 +31,12 @@ const MessagesScreen = ({ navigation }) => {
   });
 
   if (messageList.length === 0 || loading)
-    return <EmptyMessageList styles={styles.screen} />;
+    return <EmptyMessageList styles={styles.emptyScreen} />;
 
   return (
-    <View style={{ margin: 10 }}>
+    <View style={styles.screen}>
       <FlatList
+        style={{ margin: 10 }}
         data={messageList}
         numColumns={1}
         showsVerticalScrollIndicator
@@ -55,10 +57,14 @@ const MessagesScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  emptyScreen: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: theme.colors.snowWhite,
+  },
+  screen: {
+    backgroundColor: theme.colors.snowWhite,
   },
 });
 
