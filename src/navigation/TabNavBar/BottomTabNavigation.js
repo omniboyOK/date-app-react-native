@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import GlobalProfilesScreen from "../../screens/HomeGlobal/GlobalProfilesScreen";
 import UserEditProfileScreen from "../../screens/UserProfile/UserProfileScreen";
-import MessagesScreen from "../../screens/HomeMessages/MessagesScreen";
+import MessagesScreen from "../../screens/MessageScreen/MessagesScreen";
 import TabIcon from "../../components/TabIcon/TabIcon";
 import { createStackNavigator } from "react-navigation-stack";
 import Chat from "../../screens/Message/Chat";
@@ -38,7 +38,7 @@ const TabNavigationView = createBottomTabNavigator(
       screen: GlobalProfilesScreen,
       navigationOptions: {
         tabBarIcon: (tabInfo) => (
-          <TabIcon tabInfo={tabInfo} name="nearby" size={24} />
+          <TabIcon tabInfo={tabInfo} name="nearby" size={30} />
         ),
       },
     },
@@ -46,7 +46,7 @@ const TabNavigationView = createBottomTabNavigator(
       screen: MessageStack,
       navigationOptions: {
         tabBarIcon: (tabInfo) => (
-          <TabIcon tabInfo={tabInfo} name="messages" size={24} />
+          <TabIcon tabInfo={tabInfo} name="messages" size={30} />
         ),
       },
     },
@@ -54,7 +54,7 @@ const TabNavigationView = createBottomTabNavigator(
       screen: UserEditProfileScreen,
       navigationOptions: {
         tabBarIcon: (tabInfo) => (
-          <TabIcon tabInfo={tabInfo} name="user" size={24} />
+          <TabIcon tabInfo={tabInfo} name="user" size={30} />
         ),
       },
     },
@@ -62,8 +62,27 @@ const TabNavigationView = createBottomTabNavigator(
   {
     initialRouteName: "Nearby",
     tabBarOptions: {
+      showLabel: false,
       activeTintColor: "#754ADB",
-      style: { height: 55, borderRadius: 10, borderTopWidth: 0 },
+      style: {
+        height: 50,
+        alignContent: "center",
+        borderRadius: 17,
+        borderTopWidth: 0,
+        margin: 10,
+        position: "absolute",
+
+        // Shadows
+        shadowColor: "#754ADB",
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+      },
     },
   }
 );
