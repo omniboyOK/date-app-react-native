@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
-import { useState } from "react/cjs/react.development";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import theme from "../../constants/theme";
 
 const UserEditProfileScreen = () => {
+  // TODO: select data from store redux
   return (
     <View style={styles.screen}>
       <View style={styles.profile}>
@@ -12,27 +12,29 @@ const UserEditProfileScreen = () => {
             source={require("../../../assets/faces/bobby.png")}
             style={styles.picture}
           />
-          <Text>Nombre, Edad</Text>
+          <Text style={styles.textContainer}>
+            <Text style={styles.username}>Nombre</Text>, Edad
+          </Text>
         </View>
         <View style={styles.actionMenu}>
-          <View style={styles.iconContainer}>
+          <TouchableOpacity style={styles.iconContainer}>
             <Image
               source={require("../../../assets/images/icons/image-gallery.png")}
               style={styles.iconButton}
             />
-          </View>
-          <View style={[styles.iconContainer, { marginTop: 30 }]}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconContainer}>
             <Image
               source={require("../../../assets/images/icons/camera.png")}
               style={styles.iconButton}
             />
-          </View>
-          <View style={styles.iconContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconContainer}>
             <Image
               source={require("../../../assets/images/icons/pen.png")}
               style={styles.iconButton}
             />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -42,43 +44,71 @@ const UserEditProfileScreen = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: "column",
+    margin: 10,
   },
   profile: {
-    padding: 15,
+    flexDirection: "column",
+    height: "50%",
+    borderRadius: theme.radius.strong,
     alignItems: "center",
-    flex: 1,
     backgroundColor: theme.colors.snowWhite,
-    height: Dimensions.get("screen").height / 2.5,
+
+    shadowColor: theme.colors.tundrStrong,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 2,
   },
   main: {
-    marginBottom: 15,
+    flex: 4,
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
   },
   picture: {
-    height: (Dimensions.get("screen").width * 0.75) / 3,
-    width: (Dimensions.get("screen").width * 0.75) / 3,
-    borderRadius: Dimensions.get("screen").width * 0.75,
+    height: 120,
+    width: 120,
+    borderRadius: 100,
+  },
+  actionMenu: {
+    flex: 2,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
+    width: "80%",
   },
   iconButton: {
-    height: 30,
-    width: 30,
+    height: 35,
+    width: 35,
     alignSelf: "center",
     tintColor: theme.colors.snowWhite,
   },
   iconContainer: {
     justifyContent: "center",
-    borderRadius: 70,
-    height: 70,
-    width: 70,
+    borderRadius: 60,
+    height: 65,
+    width: 65,
     backgroundColor: theme.colors.tundrLight,
+    shadowColor: theme.colors.tundrStrong,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 2,
   },
-  actionMenu: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: Dimensions.get("screen").width * 0.75,
-    marginVertical: 15,
+  username: {
+    fontFamily: theme.fontFamily.pangramBold,
+  },
+  textContainer: {
+    marginVertical: 5,
+    fontFamily: theme.fontFamily.pangramRegular,
   },
 });
 

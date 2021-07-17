@@ -1,4 +1,6 @@
 /** All api uris separated by screen */
 
-/** HOME */
-// get /home/
+import axios from "axios";
+
+// ROOT STACK
+// GLOBAL TAB

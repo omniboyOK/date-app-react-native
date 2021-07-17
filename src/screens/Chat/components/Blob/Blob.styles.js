@@ -13,6 +13,7 @@ const styles = () =>
     },
     text: {
       color: theme.colors.snowWhite,
+      fontFamily: theme.fontFamily.pangramMedium,
       alignSelf: "center",
     },
     leftSided: {

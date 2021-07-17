@@ -12,6 +12,15 @@ const theme = {
     medium: 17,
     strong: 30,
   },
+  fontFamily: {
+    pangramBlack: "Pangram-Black",
+    pangramBold: "Pangram-Bold",
+    pangramExtraBold: "Pangram-ExtraBold",
+    pangramExtraLight: "Pangram-ExtraLight",
+    pangramMedium: "Pangram-Medium",
+    pangramRegular: "Pangram-Regular",
+    pangramLight: "Pangram-Light",
+  },
 };
 
 export default theme;

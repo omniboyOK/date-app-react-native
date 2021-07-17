@@ -1,10 +1,17 @@
 {
+    "id": "123122144",
     "chats": [
         {
-            "id": "001",
-            "users": [
-                ""
-            ]
+            "id": "1245211",
+            "last_message": "hi!",
+            "image": "bobby",
+            "last_update": "July 10"
+        },
+        {
+            "id": "12452511",
+            "last_message": "hi!",
+            "image": "susan",
+            "last_update": "July 9"
         }
     ]
 }
