@@ -1,21 +1,29 @@
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import GlobalProfilesScreen from "../../screens/HomeGlobal/GlobalProfilesScreen";
-import UserEditProfileScreen from "../../screens/UserProfile/UserProfileScreen";
-import MessagesScreen from "../../screens/MessageScreen/MessagesScreen";
+import GlobalProfilesScreen from "../../screens/Home/Home";
+import UserScreen from "../../screens/UserProfile/UserProfile";
+import MessagesScreen from "../../screens/Messages/Messages";
 import TabIcon from "../../components/TabIcon/TabIcon";
 import { createStackNavigator } from "react-navigation-stack";
-import Chat from "../../screens/Message/Chat";
+import Chat from "../../screens/Chat/Chat";
+import theme from "../../constants/theme";
 
-const MessageStack = createStackNavigator({
-  Messages: {
-    screen: MessagesScreen,
-    navigationOptions: {
-      headerShown: false,
+const MessageStack = createStackNavigator(
+  {
+    Messages: {
+      screen: MessagesScreen,
+      navigationOptions: {
+        headerShown: false,
+      },
     },
+    Message: Chat,
   },
-  Message: Chat,
-});
+  {
+    defaultNavigationOptions: {
+      cardStyle: { backgroundColor: theme.colors.snowWhite },
+    },
+  }
+);
 
 /** Don´t show the bottom navbar when chating */
 MessageStack.navigationOptions = ({ navigation }) => {
@@ -51,7 +59,7 @@ const TabNavigationView = createBottomTabNavigator(
       },
     },
     Profile: {
-      screen: UserEditProfileScreen,
+      screen: UserScreen,
       navigationOptions: {
         tabBarIcon: (tabInfo) => (
           <TabIcon tabInfo={tabInfo} name="user" size={30} />
@@ -63,7 +71,8 @@ const TabNavigationView = createBottomTabNavigator(
     initialRouteName: "Nearby",
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: "#754ADB",
+      activeTintColor: theme.colors.tundrMain,
+      inactiveTintColor: theme.colors.tundrLight,
       style: {
         height: 50,
         alignContent: "center",
@@ -73,7 +82,7 @@ const TabNavigationView = createBottomTabNavigator(
         position: "absolute",
 
         // Shadows
-        shadowColor: "#754ADB",
+        shadowColor: theme.colors.tundrMain,
         shadowOffset: {
           width: 0,
           height: 2,
