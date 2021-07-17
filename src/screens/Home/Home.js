@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
+import MainTitle from "../../components/MainTitle/MainTitle";
 import Thumbnail from "../../components/Thumbnail";
 import { generateList } from "../../utils/profilesGenerator";
 
@@ -19,24 +20,26 @@ const GlobalProfilesScreen = () => {
 
   return (
     <View style={styles.container}>
+      <MainTitle text="Activity Near You" />
       <FlatList
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         data={userList}
         numColumns={listColumns}
         keyExtractor={(_, index) => "key-" + index}
         renderItem={({ item }) => {
           return <Thumbnail user={item} size={listColumns} />;
         }}
-        style={{padding: 7}}
+        style={{ paddingBottom: 50 }}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    margin: 10,
   },
 });
 
