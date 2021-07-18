@@ -16,7 +16,24 @@ const MessageStack = createStackNavigator(
         headerShown: false,
       },
     },
-    Message: Chat,
+    Message: {
+      screen: Chat,
+      navigationOptions: {
+        title: null,
+        headerStyle: {
+          borderBottomWidth: 0,
+          shadowColor: theme.colors.tundrLight,
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.2,
+          shadowRadius: 1.41,
+
+          elevation: 2,
+        },
+      },
+    },
   },
   {
     defaultNavigationOptions: {

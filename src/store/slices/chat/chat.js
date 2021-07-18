@@ -25,6 +25,11 @@ const userSlice = createSlice({
       state.error = false;
       state.messages = action.payload;
     },
+    postMessage(state, action) {
+      state.loading = false;
+      state.error = false;
+      state.messages = [...state.messages, action.payload];
+    },
   },
 });
 
