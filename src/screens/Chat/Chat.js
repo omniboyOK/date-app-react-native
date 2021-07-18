@@ -69,8 +69,9 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
+    padding: 5,
     borderColor: theme.colors.tundrLight,
-    color: theme.colors.tundrLight,
+    color: theme.colors.tundrStrong,
     fontSize: 16,
     height: 50,
     borderRadius: 7,
