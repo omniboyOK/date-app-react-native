@@ -2,8 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
 import theme from "../../constants/theme";
+import PremiumBanner from "./components/PremiumBanner";
 
-const UserEditProfileScreen = () => {
+const UserProfile = () => {
   const name = useSelector((state) => state.user.name);
   const age = useSelector((state) => state.user.age);
 
@@ -40,6 +41,7 @@ const UserEditProfileScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
+      <PremiumBanner />
     </View>
   );
 };
@@ -115,4 +117,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserEditProfileScreen;
+export default UserProfile;
