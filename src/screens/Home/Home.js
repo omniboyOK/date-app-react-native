@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 import MainTitle from "../../components/MainTitle/MainTitle";
-import Thumbnail from "../../components/Thumbnail";
+import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import { generateList } from "../../utils/profilesGenerator";
 
 const GlobalProfilesScreen = () => {

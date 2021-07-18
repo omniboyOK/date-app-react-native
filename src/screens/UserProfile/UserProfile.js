@@ -1,9 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
 import theme from "../../constants/theme";
 
 const UserEditProfileScreen = () => {
-  // TODO: select data from store redux
+  const name = useSelector((state) => state.user.name);
+  const age = useSelector((state) => state.user.age);
+
   return (
     <View style={styles.screen}>
       <View style={styles.profile}>
@@ -13,7 +16,7 @@ const UserEditProfileScreen = () => {
             style={styles.picture}
           />
           <Text style={styles.textContainer}>
-            <Text style={styles.username}>Nombre</Text>, Edad
+            <Text style={styles.username}>{name}</Text>, {age}
           </Text>
         </View>
         <View style={styles.actionMenu}>
