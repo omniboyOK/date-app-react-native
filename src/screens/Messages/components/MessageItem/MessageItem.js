@@ -4,7 +4,6 @@ import {
   Text,
   Image,
   StyleSheet,
-  TouchableHighlight,
   TouchableOpacity,
 } from "react-native";
 import { PICTURES } from "../../../../constants/pictures";

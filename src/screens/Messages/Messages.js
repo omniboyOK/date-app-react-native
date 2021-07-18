@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, FlatList, Text } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import theme from "../../constants/theme";
 import EmptyMessageList from "./components/EmptyState/EmptyState";

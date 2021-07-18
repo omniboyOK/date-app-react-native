@@ -13,7 +13,7 @@ import { IS_WEB } from "./src/constants/utils";
 import { Provider } from "react-redux";
 import store from "./src/store";
 
-export default () => {
+const App = () => {
   const [fontsLoaded] = useFonts(fonts);
 
   if (!fontsLoaded) return <AppLoading />;
@@ -33,6 +33,8 @@ export default () => {
     </Provider>
   );
 };
+
+export default App;
 
 const styles = StyleSheet.create({
   mobileContainer: {

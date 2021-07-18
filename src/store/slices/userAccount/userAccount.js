@@ -13,7 +13,7 @@ const userSlice = createSlice({
   name: sliceName,
   initialState: initialState,
   reducers: {
-    startFetching(state, action) {
+    startFetching(state) {
       state.loading = true;
       state.error = false;
     },

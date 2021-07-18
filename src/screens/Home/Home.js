@@ -5,7 +5,7 @@ import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import { generateList } from "../../utils/profilesGenerator";
 
 const GlobalProfilesScreen = () => {
-  const [listColumns, setListColumns] = useState(4);
+  const [listColumns] = useState(4);
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
