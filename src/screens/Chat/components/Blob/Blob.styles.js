@@ -6,6 +6,7 @@ const styles = () =>
     container: {
       flexDirection: "row",
       height: 30,
+      minWidth: 50,
       maxWidth: Dimensions.get("screen").width * 0.75,
       borderRadius: theme.radius.medium,
       marginVertical: 10,
