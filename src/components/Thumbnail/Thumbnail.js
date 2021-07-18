@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Dimensions, View, Image, Text } from "react-native";
+import { StyleSheet, Dimensions, View, Image, Text, TouchableOpacity} from "react-native";
 import { PICTURES } from "../../constants/pictures";
 import theme from "../../constants/theme";
 import { IS_WEB } from "../../constants/utils";
@@ -9,7 +9,7 @@ const Thumbnail = ({ user }) => {
     PICTURES[image] ? PICTURES[image] : PICTURES.default;
 
   return (
-    <View style={styles.thumbnail}>
+    <TouchableOpacity style={styles.thumbnail}>
       <Image
         source={profilePic(user.image)}
         resizeMode="cover"
@@ -18,7 +18,7 @@ const Thumbnail = ({ user }) => {
       <View style={styles.textContainer}>
         <Text style={styles.username}>{user.name}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
