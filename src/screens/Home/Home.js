@@ -19,7 +19,7 @@ const GlobalProfilesScreen = () => {
 
   useEffect(() => {
     const getData = () => {
-      const list = generateList(100);
+      const list = generateList(51);
 
       setUserList(list);
     };

@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Dimensions, View, Image, Text, TouchableOpacity} from "react-native";
+import {
+  StyleSheet,
+  Dimensions,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { PICTURES } from "../../constants/pictures";
 import theme from "../../constants/theme";
 import { IS_WEB } from "../../constants/utils";
@@ -24,16 +31,25 @@ const Thumbnail = ({ user }) => {
 
 const styles = StyleSheet.create({
   thumbnail: {
+    flex: IS_WEB ? 6 : 1,
+    flexDirection: "row",
     borderColor: "white",
     borderRadius: 10,
-    flex: 1,
     height: IS_WEB
-      ? Dimensions.get("screen").width / 10
-      : Dimensions.get("screen").width / 4,
-    maxHeight: Dimensions.get("screen").width / 4,
-    maxWidth: Dimensions.get("screen").width / 4,
-    margin: 2,
+      ? Dimensions.get("screen").height / 4
+      : Dimensions.get("screen").width / 4 - 16,
+    maxWidth: Dimensions.get("screen").width / 4 - 16,
+    margin: 5,
     overflow: "hidden",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
   },
   image: {
     width: "100%",
