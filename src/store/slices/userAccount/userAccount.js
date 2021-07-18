@@ -3,8 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const sliceName = "user";
 
 export const initialState = {
-  name: "Paul",
-  age: 30,
+  name: "Unkown",
+  age: 0,
+  premium: false,
   loading: true,
   error: false,
 };
@@ -29,5 +30,7 @@ const userSlice = createSlice({
     },
   },
 });
+
+export const Actions = userSlice.actions;
 
 export default userSlice.reducer;

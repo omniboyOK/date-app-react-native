@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import theme from "../../constants/theme";
+import { getData } from "../../store/api/userAccount/userAccount";
+import { Actions } from "../../store/slices/userAccount/userAccount";
 
 const UserEditProfileScreen = () => {
   const name = useSelector((state) => state.user.name);
   const age = useSelector((state) => state.user.age);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const data = getData();
+    dispatch(Actions.successFetching(data));
+  });
 
   return (
     <View style={styles.screen}>
