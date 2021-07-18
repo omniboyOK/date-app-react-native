@@ -1,11 +1,11 @@
 import React from "react";
-import { Dimensions, Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
 const Header = () => {
   return (
     <View style={styles.header}>
       <Image
-        source={require("../../assets/Isologo.png")}
+        source={require("../../../assets/Isologo.png")}
         resizeMode="contain"
         style={styles.image}
       />

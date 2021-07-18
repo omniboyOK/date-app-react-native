@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Dimensions, View, Image, Text } from "react-native";
-import { PICTURES } from "../constants/pictures";
-import theme from "../constants/theme";
-import { IS_WEB } from "../constants/utils";
+import { PICTURES } from "../../constants/pictures";
+import theme from "../../constants/theme";
+import { IS_WEB } from "../../constants/utils";
 
 const Thumbnail = ({ user }) => {
   const profilePic = (image) =>
