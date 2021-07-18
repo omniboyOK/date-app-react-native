@@ -10,6 +10,8 @@ import fonts from "./src/constants/fonts";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { IS_WEB } from "./src/constants/utils";
+import { Provider } from "react-redux";
+import store from "./src/store";
 
 export default () => {
   const [fontsLoaded] = useFonts(fonts);
@@ -17,14 +19,18 @@ export default () => {
   if (!fontsLoaded) return <AppLoading />;
 
   return (
-    <SafeAreaView style={IS_WEB ? styles.webContainer : styles.mobileContainer}>
-      <NavigationView />
-      <ImageBackground
-        source={require("./assets/faces/bobby.png")}
-        resizeMode="cover"
-        style={styles.image}
-      />
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView
+        style={IS_WEB ? styles.webContainer : styles.mobileContainer}
+      >
+        <NavigationView />
+        <ImageBackground
+          source={require("./assets/faces/bobby.png")}
+          resizeMode="cover"
+          style={styles.image}
+        />
+      </SafeAreaView>
+    </Provider>
   );
 };
 
@@ -41,6 +47,6 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "center",
-    position: 'absolute'
+    position: "absolute",
   },
 });
