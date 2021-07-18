@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import theme from "../../constants/theme";
@@ -7,8 +7,10 @@ import { getData } from "../../store/api/messages/messages";
 import { Actions } from "../../store/slices/messages/messages";
 import EmptyMessageList from "./components/EmptyState/EmptyState";
 import MessageItem from "./components/MessageItem/MessageItem";
+import makeStyles from "./Messages.styles";
 
 const MessagesScreen = ({ navigation }) => {
+  const styles = makeStyles(theme);
   const messageList = useSelector((state) => state.messages.list);
   const dispatch = useDispatch();
 
@@ -47,19 +49,5 @@ const MessagesScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  emptyScreen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: theme.colors.snowWhite,
-  },
-  screen: {
-    flex: 1,
-    backgroundColor: theme.colors.snowWhite,
-    margin: 10,
-  },
-});
 
 export default MessagesScreen;

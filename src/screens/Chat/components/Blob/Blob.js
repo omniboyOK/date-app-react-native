@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
-import styles from "./Blob.styles";
+import makeStyles from "./Blob.styles";
 
 const BlobMessage = ({ leftSided = true, message = "" }) => {
-  const style = styles(leftSided);
+  const style = makeStyles(leftSided);
   return (
     <View
       style={[style.container, leftSided ? style.leftSided : style.rightSided]}

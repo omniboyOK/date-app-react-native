@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet, TextInput, View } from "react-native";
+import { FlatList, TextInput, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import theme from "../../constants/theme";
 import { getData } from "../../store/api/chat/chat";
 import { Actions } from "../../store/slices/chat/chat";
 import BlobMessage from "./components/Blob/Blob";
+import makeStyles from "./Chat.styles";
 
 const Chat = ({ navigation }) => {
+  const styles = makeStyles(theme);
   const chat = useSelector((state) => state.chat.messages);
   const [inputText, setInputText] = useState("");
   const { id } = useSelector((state) => state.user);
@@ -62,21 +64,5 @@ const Chat = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  input: {
-    borderWidth: 1,
-    padding: 5,
-    borderColor: theme.colors.tundrLight,
-    color: theme.colors.tundrStrong,
-    fontSize: 16,
-    height: 50,
-    borderRadius: 7,
-    margin: 5,
-  },
-});
 
 export default Chat;

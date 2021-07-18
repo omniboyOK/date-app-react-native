@@ -1,9 +1,11 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { PICTURES } from "../../../../constants/pictures";
 import theme from "../../../../constants/theme";
+import makeStyles from "./MessageItem.styles";
 
 const MessageItem = ({ message, date, image, name, onPress }) => {
+  const styles = makeStyles(theme);
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
@@ -25,31 +27,5 @@ const MessageItem = ({ message, date, image, name, onPress }) => {
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    height: 60,
-    borderRadius: 10,
-    marginVertical: 5,
-  },
-  picture: {
-    width: 60,
-    height: 60,
-    marginBottom: 30,
-    borderRadius: 10,
-  },
-  leftContent: {
-    flexDirection: "row",
-  },
-  textContainer: { marginHorizontal: 14 },
-  username: {
-    fontFamily: theme.fontFamily.pangramBold,
-  },
-  message: {
-    fontFamily: theme.fontFamily.pangramRegular,
-  },
-});
 
 export default MessageItem;

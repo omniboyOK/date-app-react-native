@@ -1,5 +1,6 @@
 import React from "react";
 import { Image } from "react-native";
+import makeStyles from "./TabIcon.styles";
 
 const tabIcons = {
   nearby: require("../../../assets/images/icons/nearby.png"),
@@ -8,12 +9,8 @@ const tabIcons = {
 };
 
 const TabIcon = ({ tabInfo = {}, name, size = 14 }) => {
-  return (
-    <Image
-      source={tabIcons[name]}
-      style={{ width: size, height: size, tintColor: tabInfo.tintColor, padding: 5 }}
-    />
-  );
+  const styles = makeStyles(size, tabInfo);
+  return <Image source={tabIcons[name]} style={styles.image} />;
 };
 
 export default TabIcon;

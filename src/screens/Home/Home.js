@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import { useDispatch } from "react-redux";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import { getData } from "../../store/api/userAccount/userAccount";
 import { Actions } from "../../store/slices/userAccount/userAccount";
 import { generateList } from "../../utils/profilesGenerator";
+import makeStyles from "./Home.styles";
 
 const GlobalProfilesScreen = () => {
+  const styles = makeStyles();
   const [listColumns] = useState(4);
   const [userList, setUserList] = useState([]);
   const dispatch = useDispatch();
@@ -19,7 +21,7 @@ const GlobalProfilesScreen = () => {
 
   useEffect(() => {
     const getData = () => {
-      const list = generateList(51);
+      const list = generateList(52);
 
       setUserList(list);
     };
@@ -39,17 +41,10 @@ const GlobalProfilesScreen = () => {
         renderItem={({ item }) => {
           return <Thumbnail user={item} size={listColumns} />;
         }}
-        contentContainerStyle={{ paddingBottom: 50 }}
+        contentContainerStyle={styles.list}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 10,
-  },
-});
 
 export default GlobalProfilesScreen;

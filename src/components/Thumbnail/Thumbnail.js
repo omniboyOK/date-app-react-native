@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  StyleSheet,
-  Dimensions,
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 import { PICTURES } from "../../constants/pictures";
 import theme from "../../constants/theme";
-import { IS_WEB } from "../../constants/utils";
+import makeStyles from "./Thumbnail.styles";
 
 const Thumbnail = ({ user }) => {
+  const styles = makeStyles(theme);
+  
   const profilePic = (image) =>
     PICTURES[image] ? PICTURES[image] : PICTURES.default;
 
@@ -28,47 +23,5 @@ const Thumbnail = ({ user }) => {
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  thumbnail: {
-    flex: IS_WEB ? 6 : 1,
-    flexDirection: "row",
-    borderColor: "white",
-    borderRadius: 10,
-    height: IS_WEB
-      ? Dimensions.get("screen").height / 4
-      : Dimensions.get("screen").width / 4 - 16,
-    maxWidth: Dimensions.get("screen").width / 4 - 16,
-    margin: 5,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-
-    elevation: 3,
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    borderRadius: 10,
-    overflow: "hidden",
-  },
-  username: {
-    color: "white",
-    margin: 3,
-    fontSize: 12,
-    fontFamily: theme.fontFamily.pangramRegular,
-  },
-  textContainer: {
-    backgroundColor: "rgba(52, 52, 52, 0.5)",
-    overflow: "hidden",
-    position: "absolute",
-    borderBottomRightRadius: theme.radius.light,
-  },
-});
 
 export default Thumbnail;
