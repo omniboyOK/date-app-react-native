@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { PICTURES } from "../../../../constants/pictures";
 import theme from "../../../../constants/theme";
 
-const MessageItem = ({ message, date, image, onPress }) => {
+const MessageItem = ({ message, date, image, name, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
@@ -20,7 +14,7 @@ const MessageItem = ({ message, date, image, onPress }) => {
             source={image ? PICTURES[image] : PICTURES.default}
           />
           <View style={styles.textContainer}>
-            <Text style={styles.username}>Name</Text>
+            <Text style={styles.username}>{name}</Text>
             <Text style={styles.message}>{message}</Text>
           </View>
         </View>

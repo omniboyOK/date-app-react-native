@@ -1,13 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const sliceName = "user";
+const sliceName = "messages";
 
 export const initialState = {
-  id: null,
-  name: "Unkown",
-  age: 0,
-  premium: false,
-  loading: true,
+  list: [],
+  loading: false,
   error: false,
 };
 
@@ -26,9 +23,7 @@ const userSlice = createSlice({
     successFetching(state, action) {
       state.loading = false;
       state.error = false;
-      state.name = action.payload?.name;
-      state.age = action.payload?.age;
-      state.id = action.payload?.id;
+      state.list = action.payload;
     },
   },
 });

@@ -1,37 +1,27 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import MainTitle from "../../components/MainTitle/MainTitle";
 import theme from "../../constants/theme";
+import { getData } from "../../store/api/messages/messages";
+import { Actions } from "../../store/slices/messages/messages";
 import EmptyMessageList from "./components/EmptyState/EmptyState";
 import MessageItem from "./components/MessageItem/MessageItem";
 
 const MessagesScreen = ({ navigation }) => {
-  const [messageList, setMessageList] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const messageList = useSelector((state) => state.messages.list);
+  const dispatch = useDispatch();
 
-  const navigateToChat = () => {
-    navigation.navigate("Message");
+  const navigateToChat = (messageId) => {
+    navigation.navigate("Message", { id: messageId });
   };
 
   useEffect(() => {
-    const getData = () => {
-      axios
-        .get("https://run.mocky.io/v3/4834872a-c365-450a-a746-ba35888933f8")
-        .then((response) => {
-          setMessageList(response.data.chats);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.log(error);
-          setLoading(false);
-        });
-    };
-
-    getData();
+    const data = getData();
+    dispatch(Actions.successFetching(data));
   });
 
-  if (messageList.length === 0 || loading)
+  if (messageList.length === 0)
     return <EmptyMessageList styles={styles.emptyScreen} />;
 
   return (
@@ -45,10 +35,11 @@ const MessagesScreen = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <MessageItem
+              name={item.name}
               date={item.last_update}
               message={item.last_message}
               image={item.image}
-              onPress={() => navigateToChat()}
+              onPress={() => navigateToChat(item.id)}
             />
           );
         }}

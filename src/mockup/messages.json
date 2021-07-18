@@ -1,0 +1,25 @@
+{
+    "chats": [
+        {
+            "id": "a1",
+            "name": "Bobby",
+            "last_message": "bye!",
+            "image": "bobby",
+            "last_update": "10 mins ago"
+        },
+        {
+            "id": "a2",
+            "name": "Betty",
+            "last_message": "hi!",
+            "image": "betty",
+            "last_update": "2 days ago"
+        },
+        {
+            "id": "a3",
+            "name": "Susan",
+            "last_message": "hello!",
+            "image": "susan",
+            "last_update": "1 week ago"
+        }
+    ]
+}

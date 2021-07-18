@@ -1,17 +1,37 @@
-{
-    "id": "123122144",
-    "chats": [
-        {
-            "id": "1245211",
-            "last_message": "hi!",
-            "image": "bobby",
-            "last_update": "July 10"
-        },
-        {
-            "id": "12452511",
-            "last_message": "hi!",
-            "image": "susan",
-            "last_update": "July 9"
-        }
-    ]
-}
+[
+    {
+        "id": "a1",
+        "messages": [
+            {
+                "text": "hello",
+                "date": "2020-06-19 18:30",
+                "user": "uid1"
+            },
+            {
+                "text": "bye!",
+                "date": "2020-06-19 18:31",
+                "user": "uid2"
+            }
+        ]
+    },
+    {
+        "id": "a2",
+        "messages": [
+            {
+                "text": "hi!",
+                "date": "2020-06-19 18:30",
+                "user": "uid2"
+            }
+        ]
+    },
+    {
+        "id": "a3",
+        "messages": [
+            {
+                "text": "hello!",
+                "date": "2020-06-19 18:30",
+                "user": "uid1"
+            }
+        ]
+    }
+]
