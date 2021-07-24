@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Dimensions,
-  ImageBackground,
   SafeAreaView,
   StyleSheet,
 } from "react-native";
@@ -24,11 +23,6 @@ const App = () => {
         style={IS_WEB ? styles.webContainer : styles.mobileContainer}
       >
         <NavigationView />
-        <ImageBackground
-          source={require("./assets/faces/bobby.png")}
-          resizeMode="cover"
-          style={styles.image}
-        />
       </SafeAreaView>
     </Provider>
   );
